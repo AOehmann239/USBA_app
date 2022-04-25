@@ -21,10 +21,9 @@ transaction (which account it's under, amount, vendor, description, category)<br
 
 MERN<br />
 Postman<br />
-
-![Home page](https://user-images.githubusercontent.com/97055154/164785757-d0b39d04-f22c-4a18-862a-328516957235.jpg)
-![bank_action](https://user-images.githubusercontent.com/97055154/164785532-f7fe1b9c-743a-4e11-90ac-a5ded5515438.jpg)
-![Add transaction](https://user-images.githubusercontent.com/97055154/164785525-23a5f699-74f9-433a-ad89-c69cf8f52265.jpg)
-![budget_breakdown](https://user-images.githubusercontent.com/97055154/164785544-516c4c8b-4d39-440c-a7f1-556e3d76da1e.jpg)
-![category_breakdown](https://user-images.githubusercontent.com/97055154/164785555-b2c42083-4baf-44a4-a7a9-aef8751b03c7.jpg)
-![ERD bank back end](https://user-images.githubusercontent.com/97055154/164786248-59676755-e187-424e-8c2a-baa946a558c2.jpeg)
+![ERD bank back end](https://user-images.githubusercontent.com/97055154/165099544-8f9861c7-f0a7-44b5-bbb2-c26f4c4deef9.jpeg)
+![Home page](https://user-images.githubusercontent.com/97055154/165099559-da5031f4-8d72-44a8-b4a8-b3e0399daf92.jpg)
+![Create budget](https://user-images.githubusercontent.com/97055154/165099587-8615c4dc-6e13-4722-9373-e957a8e000ed.jpg)
+![Budget overview](https://user-images.githubusercontent.com/97055154/165099565-23c69ad3-2c17-46fd-a9a0-4218746e8d04.jpg)
+![Category Breakdown](https://user-images.githubusercontent.com/97055154/165099724-4003f910-b70b-4a04-b18b-4989f2ea506c.jpg)
+![Add transaction](https://user-images.githubusercontent.com/97055154/165099729-9d0d4e56-cacd-405d-98a6-a815d94ca6af.jpg)
