@@ -3,7 +3,7 @@ import {Modal} from 'react-bootstrap'
 import ExpenseForm from '../shared/ExpenseForm'
 
 const EditExpenseModal = (props) => {
-    const { user, show, handleClose, updatePet, msgAlert, triggerRefresh } = props
+    const { user, show, handleClose, updateExpense, msgAlert, triggerRefresh } = props
     const [expense, setExpense] = useState(props.expense)
 
     const handleChange = (e) => {
@@ -15,11 +15,6 @@ const EditExpenseModal = (props) => {
             let value = e.target.value
             console.log('etarget type', e.target.type)
             console.log('this is e.target checked', e.target.checked)
-            if(name === "adoptable" && e.target.checked){
-                value = true
-            } else if (name === "adoptable" && !e.target.checked){
-                value = false
-            }
 
             if (e.target.type === 'number') {
                 value = parseInt(e.target.value)
