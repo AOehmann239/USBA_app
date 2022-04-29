@@ -48,7 +48,7 @@ const IndexExpenses = (props) => {
     let expenseCards
 
     if (expenses.length > 0) {
-        expenseCards = vs.map(expense => (
+        expenseCards = expenses.map(expense => (
             // one method of styling, usually reserved for a single style
             // we can use inline, just like in html
             <Card key={expense.id} style={{ width: '30%' }} className="m-2">

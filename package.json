@@ -41,17 +41,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "description": "",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/AOehmann239/USBA_app.git"
-  },
-  "author": "Andrew",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/AOehmann239/USBA_app/issues"
-  },
-  "homepage": "https://github.com/AOehmann239/USBA_app#readme"
+  }
 }

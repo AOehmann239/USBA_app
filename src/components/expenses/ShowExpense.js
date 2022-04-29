@@ -15,7 +15,6 @@ const ShowExpense = (props) => {
 
     const [expense, setExpense] = useState(null)
     const [modalOpen, setModalOpen] = useState(false)
-    const [toyModalOpen, setToyModalOpen] = useState(false)
     const [updated, setUpdated] = useState(false)
     const {user, msgAlert} = props
     const { id } = useParams()
@@ -94,9 +93,6 @@ const ShowExpense = (props) => {
 
                     </Card.Footer>
                 </Card>
-            </Container>
-            <Container style={cardContainerLayout}>
-                {toyCards}
             </Container>
             <EditExpenseModal 
                 expense={expense}

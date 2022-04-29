@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import { getOneimport React, {useState, useEffect} from 'react'
 import { getOneDeposit, updateDeposit, removeDeposit } from '../../api/deposits'
 import { useParams, useNavigate } from 'react-router-dom'
 import { Spinner, Container, Card, Button } from 'react-bootstrap'
@@ -60,7 +59,7 @@ const ShowDeposit = (props) => {
             })
     }
 
-    }
+
 
     if (!deposit) {
         return (
@@ -80,6 +79,7 @@ const ShowDeposit = (props) => {
                         <Card.Text>
                             <small>Amount: {deposit.amount}</small><br/>
                             <small>Description: {deposit.description}</small><br/>
+
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
@@ -93,7 +93,6 @@ const ShowDeposit = (props) => {
                     </Card.Footer>
                 </Card>
             </Container>
-            
             <EditDepositModal 
                 deposit={deposit}
                 show={modalOpen}

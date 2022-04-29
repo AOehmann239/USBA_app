@@ -48,7 +48,7 @@ const IndexDeposits = (props) => {
     let depositCards
 
     if (deposits.length > 0) {
-        depositCards = vs.map(deposit => (
+        depositCards = deposits.map(deposit => (
             // one method of styling, usually reserved for a single style
             // we can use inline, just like in html
             <Card key={deposit.id} style={{ width: '30%' }} className="m-2">
