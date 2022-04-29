@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import { getOneimport React, {useState, useEffect} from 'react'
 import { getOneExpense, updateExpense, removeExpense } from '../../api/expenses'
 import { useParams, useNavigate } from 'react-router-dom'
 import { Spinner, Container, Card, Button } from 'react-bootstrap'
@@ -16,6 +15,7 @@ const ShowExpense = (props) => {
 
     const [expense, setExpense] = useState(null)
     const [modalOpen, setModalOpen] = useState(false)
+    const [toyModalOpen, setToyModalOpen] = useState(false)
     const [updated, setUpdated] = useState(false)
     const {user, msgAlert} = props
     const { id } = useParams()
@@ -60,7 +60,7 @@ const ShowExpense = (props) => {
             })
     }
 
-    }
+
 
     if (!expense) {
         return (
@@ -80,10 +80,8 @@ const ShowExpense = (props) => {
                     <Card.Body>
                         <Card.Text>
                             <small>Amount: {expense.amount}</small><br/>
-                            <small>Vendor: {expense.vendor}</small><br/>
                             <small>Description: {expense.description}</small><br/>
-                            <small>Date: {expense.date}</small><br/>
-
+                           
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
@@ -97,7 +95,9 @@ const ShowExpense = (props) => {
                     </Card.Footer>
                 </Card>
             </Container>
-            
+            <Container style={cardContainerLayout}>
+                {toyCards}
+            </Container>
             <EditExpenseModal 
                 expense={expense}
                 show={modalOpen}
