@@ -75,11 +75,13 @@ const ShowExpense = (props) => {
         <>
             <Container className="fluid">
                 <Card>
-                    <Card.Header>{expense.vendor}</Card.Header>
+                    <Card.Header>{expense.date}</Card.Header>
                     <Card.Body>
                         <Card.Text>
+                            <small>Vendor: {expense.vendor}</small><br/>
                             <small>Amount: {expense.amount}</small><br/>
                             <small>Description: {expense.description}</small><br/>
+                            <small>Category: {expense.category}</small><br/>
                            
                         </Card.Text>
                     </Card.Body>
