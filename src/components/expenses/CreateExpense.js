@@ -13,7 +13,7 @@ const CreateExpense = (props) => {
     console.log('user in create', user)
     const navigate = useNavigate()
     // we'll need two states
-    const [expense, setExpense] = useState({name: '', type: '', age: '', adoptable: false})
+    const [expense, setExpense] = useState({amount: '', vendor: '', category: '', description: '', date: ''})
     console.log('expense in create', expense)
     //  an empty expense object
     // and a createdId (used to navigate)
