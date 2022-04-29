@@ -80,7 +80,10 @@ const ShowExpense = (props) => {
                     <Card.Body>
                         <Card.Text>
                             <small>Amount: {expense.amount}</small><br/>
+                            <small>Vendor: {expense.vendor}</small><br/>
                             <small>Description: {expense.description}</small><br/>
+                            <small>Date: {expense.date}</small><br/>
+
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
