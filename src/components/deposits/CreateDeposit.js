@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Form, Container, Button } from 'react-bootstrap'
-import { createDeposit } from '../../api/deposit'
+import { createDeposit } from '../../api/deposits'
 import {createDepositSuccess, createDepositFailure} from '../shared/AutoDismissAlert/messages'
 import { useNavigate } from 'react-router-dom'
 import DepositForm from '../shared/DepositForm'
@@ -47,7 +47,7 @@ const CreateDeposit = (props) => {
 
         createDeposit(user, deposit)
             // if create is successful, we should navigate to the show page
-            .then(res => {navigate(`/deposits/${res.data.deposit.id}`)})
+            .then(res => {navigate(`/deposits/${res.data.deposit._id}`)})
             // then we send a success message
             .then(() =>
                 msgAlert({

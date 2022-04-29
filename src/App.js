@@ -15,9 +15,9 @@ import ChangePassword from './components/auth/ChangePassword';
 import ShowExpense from './components/expenses/ShowExpense';
 import CreateExpense from './components/expenses/CreateExpense';
 import IndexExpenses from './components/expenses/IndexExpenses';
-import ShowDeposit from './components/expenses/ShowExpense';
-import CreateDeposit from './components/expenses/CreateExpense';
-import IndexDeposits from './components/expenses/IndexExpenses';
+import ShowDeposit from './components/deposits/ShowDeposit';
+import CreateDeposit from './components/deposits/CreateDeposit';
+import IndexDeposits from './components/deposits/IndexDeposits';
 
 
 const App = () => {

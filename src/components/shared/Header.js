@@ -13,7 +13,7 @@ const authenticatedOptions = (
         Add Expense
       </Link>
     </Nav.Item>
-	<Nav.Item className="m-2">
+	  <Nav.Item className="m-2">
       <Link to="addDeposit" style={linkStyle}>
         Add Deposit
       </Link>
