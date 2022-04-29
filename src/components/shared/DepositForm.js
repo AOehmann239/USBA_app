@@ -8,40 +8,19 @@ const DepositForm = (props) => {
     <Container className="justify-content-center">
       <h3>{heading}</h3>
       <Form onSubmit={handleSubmit}>
-        <Form.Label>Name</Form.Label>
+        <Form.Label>Amount</Form.Label>
         <Form.Control
-          placeholder="name?"
-          value={deposit.name}
-          name="name"
-          onChange={handleChange}
-        />
-        <Form.Label>Image</Form.Label>
-        <Form.Control
-          placeholder="img url?"
-          value={deposit.image}
-          name="image"
+          placeholder="amount"
+          value={deposit.amount}
+          type="number"
+          name="amount"
           onChange={handleChange}
         />
         <Form.Label>Description</Form.Label>
         <Form.Control
-          placeholder="description?"
+          placeholder="description"
           value={deposit.description}
           name="description"
-          onChange={handleChange}
-        />
-        <Form.Label>Price</Form.Label>
-        <Form.Control
-          placeholder="price?"
-          value={deposit.price}
-          type="number"
-          name="price"
-          onChange={handleChange}
-        />
-        <Form.Label>Category</Form.Label>
-        <Form.Control
-          placeholder="category?"
-          value={product.category}
-          name="category"
           onChange={handleChange}
         />
         <Button type="submit">Submit</Button>
