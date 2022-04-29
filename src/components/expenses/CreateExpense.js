@@ -47,7 +47,7 @@ const CreateExpense = (props) => {
 
         createExpense(user, expense)
             // if create is successful, we should navigate to the show page
-            .then(res => {navigate(`/expenses/${res.data.expense.id}`)})
+            .then(res => {navigate(`/expenses/${res.data.expense._id}`)})
             // then we send a success message
             .then(() =>
                 msgAlert({
