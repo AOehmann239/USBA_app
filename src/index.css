@@ -1,13 +1,78 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: Josefin Sans;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: Josefin Sans;
+}
+.home-page-title {
+  position: absolute;
+  top: 124px;
+  left: 521px;
+  font-family: Josefin Sans;
+  font-size: 48px;
+  line-height: 68px;
+  color: #282D37FF;
+}
+.home-page-subtitle {
+  position: absolute;
+  top: 328px;
+  left: 599px;
+  font-family: Josefin Sans;
+  font-size: 18px;
+  line-height: 28px;
+  color: #282D37FF;
+}
+.app-select-button {
+  position: absolute;
+  height: 36px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Josefin Sans;
+  font-size: 14px;
+  line-height: 22px;
+  color: #FFFFFFFF;
+  background: #56B4B8FF;
+  opacity: 1;
+  border: none;
+  border-radius: 6px;
+}
+.app-select-button:hover {
+  color: #FFFFFFFF;
+  background: #429A9DFF;
+}
+/* Pressed */
+.app-select-button:hover:active {
+  color: #FFFFFFFF;
+  background: #3B8A8DFF;
+}
+/* Disabled */
+.app-select-button:disabled {
+  opacity: 0.4;
+}
+#button1 {
+  top: 391px;
+  left: 677px;
+}
+#button2 {
+  top: 444px;
+  left: 655px;
+}
+#button3 {
+  top: 536px;
+  left: 655px;
+}
+#or {
+  position: absolute;
+  top: 509px;
+  left: 711px;
+  font-family: Josefin Sans;
+  font-size: 14px;
+  line-height: 22px;
+  color: #282D37FF;
 }
