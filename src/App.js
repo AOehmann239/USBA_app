@@ -58,15 +58,12 @@ const App = () => {
         />
         <Route
           path="/sign-up"
-          element={<SignUp msgAlert={msgAlert} setUser={setUser} />
-		}
+          element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
         />
         <Route
           path="/sign-in"
-          element={<SignIn msgAlert={msgAlert} setUser={setUser} />
-		}
+          element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
         />
-
         <Route
           path="/sign-out"
           element={
@@ -83,7 +80,7 @@ const App = () => {
             </RequireAuth>
           }
         />
-		<Route
+		    <Route
           path="/expenses"
           element={
             <RequireAuth user={user}>
@@ -91,12 +88,11 @@ const App = () => {
             </RequireAuth>
           }
         />
-		<Route
+		    <Route
           path="/expenses/:id"
-          element={<ShowExpense msgAlert={msgAlert} user={user} />
-		}
+          element={<ShowExpense msgAlert={msgAlert} user={user} />}
         />
-		<Route
+		    <Route
           path="/addExpense"
           element={
             <RequireAuth user={user}>
@@ -104,7 +100,11 @@ const App = () => {
             </RequireAuth>
           }
         />
-		<Route
+         <Route
+          path="/expensesByCategory/"
+          element={<ExpensesByCategory msgAlert={msgAlert} user={user} />}
+        />
+		    <Route
           path="/deposits"
           element={
             <RequireAuth user={user}>
@@ -112,10 +112,9 @@ const App = () => {
             </RequireAuth>
           }
         />
-		<Route
+		    <Route
           path="/deposits/:id"
-          element={<ShowDeposit msgAlert={msgAlert} user={user} />
-		}
+          element={<ShowDeposit msgAlert={msgAlert} user={user} />}
         />
         <Route
           path="/addDeposit"

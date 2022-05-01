@@ -8,7 +8,7 @@ const Home = (props) => {
 
 	return (
 		<>
-			<h1 className='home-page-title'>Greetings Traveler</h1>
+			<h1 className='page-title'>Greetings Traveler</h1>
 			<h4 className='home-page-subtitle'>Where should we start today?</h4>
 			<Link to="/addExpense">
   				<Button className='app-select-button' id='button2'>Add Expense</Button>

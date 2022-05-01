@@ -41,7 +41,7 @@ const ShowExpense = (props) => {
     }, [updated])
 
     const removeTheExpense = () => {
-        removeExpense(user, expense.id)
+        removeExpense(user, expense._id)
             .then(() => {
                 msgAlert({
                     heading: 'expense politely removed!',
@@ -49,7 +49,7 @@ const ShowExpense = (props) => {
                     variant: 'success',
                 })
             })
-            .then(() => {navigate(`/`)})
+            .then(() => {navigate(`/expenses`)})
             .catch(() => {
                 msgAlert({
                     heading: 'something went wrong',
@@ -70,12 +70,24 @@ const ShowExpense = (props) => {
             </Container>
         )
     }
+    const padTo2Digits = (num) => {
+        return num.toString().padStart(2, '0')
+    }
+    
+    const formatDate = (date) => {
+        return [
+            padTo2Digits(date.getMonth() + 1),
+            padTo2Digits(date.getDate()),
+            date.getFullYear(),
+        ].join('/');
+    }
 
     return (
+
         <>
             <Container className="fluid">
                 <Card>
-                    <Card.Header>{expense.date}</Card.Header>
+                    <Card.Header>{formatDate(new Date(expense.date))}</Card.Header>
                     <Card.Body>
                         <Card.Text>
                             <small>Vendor: {expense.vendor}</small><br/>

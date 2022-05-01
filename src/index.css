@@ -8,21 +8,19 @@ body {
 code {
   font-family: Josefin Sans;
 }
-.home-page-title {
-  position: absolute;
-  top: 124px;
-  left: 521px;
+.page-title {
+  
+  text-align: center;
   font-family: Josefin Sans;
   font-size: 48px;
   line-height: 68px;
   color: #282D37FF;
 }
 .home-page-subtitle {
-  position: absolute;
-  top: 328px;
-  left: 599px;
+  
+  text-align: center;
   font-family: Josefin Sans;
-  font-size: 18px;
+  font-size: 22px;
   line-height: 28px;
   color: #282D37FF;
 }
@@ -57,22 +55,22 @@ code {
 }
 #button1 {
   top: 391px;
-  left: 677px;
+  left: 47%;
 }
 #button2 {
   top: 444px;
-  left: 655px;
+  left: 47%;
 }
 #button3 {
   top: 536px;
-  left: 655px;
+  left: 44.5%;
 }
 #or {
   position: absolute;
-  top: 509px;
-  left: 711px;
+  top: 500px;
+  left: 51%;
   font-family: Josefin Sans;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 22px;
   color: #282D37FF;
 }

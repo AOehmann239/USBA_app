@@ -11,7 +11,7 @@ const EditExpenseModal = (props) => {
         e.persist()
 
         setExpense(prevExpense => {
-            const name = e.target.name
+            const key = e.target.name
             let value = e.target.value
             console.log('etarget type', e.target.type)
             console.log('this is e.target checked', e.target.checked)
@@ -20,7 +20,7 @@ const EditExpenseModal = (props) => {
                 value = parseInt(e.target.value)
             }
 
-            const updatedValue = { [name]: value }
+            const updatedValue = { [key]: value }
 
             console.log('prevExpense', prevExpense)
             console.log('updatedValue', updatedValue)

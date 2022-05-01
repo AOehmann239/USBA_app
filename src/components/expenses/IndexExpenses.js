@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { getAllExpenses } from '../../api/expenses'
-import { Card } from 'react-bootstrap'
+import { Card, Table, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import {indexExpensesSuccess, indexExpensesFailure} from '../shared/AutoDismissAlert/messages'
 
 // I'm going to declare a style object
 // this will be used to corral my cards
 // we can use basic CSS, but we have to use JS syntax
-const cardContainerLayout = {
-    display: 'flex',
-    justifyContent: 'center',
-    flexFlow: 'row wrap'
-}
+
 
 const IndexExpenses = (props) => {
     const [expenses, setExpenses] = useState(null)
@@ -44,33 +40,55 @@ const IndexExpenses = (props) => {
     } else if (expenses.length === 0) {
         return <p>no expenses yet, go add some</p>
     }
+        const padTo2Digits = (num) => {
+            return num.toString().padStart(2, '0')
+        }
+        
+        const formatDate = (date) => {
+            return [
+                padTo2Digits(date.getMonth() + 1),
+                padTo2Digits(date.getDate()),
+                date.getFullYear(),
+            ].join('/');
+        }
+        let expenseTableItems
 
-    let expenseCards
-
-    if (expenses.length > 0) {
-        expenseCards = expenses.map(expense => (
-            // one method of styling, usually reserved for a single style
-            // we can use inline, just like in html
-            <Card key={expense.id} style={{ width: '30%' }} className="m-2">
-                <Card.Header>${expense.amount}</Card.Header>
-                <Card.Header>{expense.vendor}</Card.Header>
-                <Card.Body>
-                    <Card.Text>
-                        <Link to={`/expenses/${expense._id}`}>More info</Link>
-                    </Card.Text>
-                </Card.Body>
-            </Card>
-        ))
-    }
+        if (expenses.length > 0) {
+            expenseTableItems = expenses.map(expense => (
+                // one method of styling, usually reserved for a single style
+                // we can use inline, just like in html
+                    <tr>
+                        <td>{formatDate(new Date(expense.date))}</td>
+                        <td>{expense.vendor}</td>
+                        <td>${expense.amount}</td>
+                        <td><Link to={`/expenses/${expense._id}`}>More info</Link></td>
+                    </tr>
+            ))
+        }
 
     return (
         <>
-            <h3>All the expenses</h3>
-            <div style={cardContainerLayout}>
-                {expenseCards}
-            </div>
+            <h3 className='page-title'>All the expenses</h3>
+            <Table striped bordered hover variant="dark">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Vendor</th>
+                        <th>Amount</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {expenseTableItems}
+                </tbody>
+            </Table>
+            <Link to="/expensesByCategory">
+  				<Button className='app-select-button' id='button3'>Breakdown By Category</Button>
+			</Link>
         </>
     )
 }
 
 export default IndexExpenses
+
+ 
