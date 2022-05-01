@@ -32,13 +32,13 @@ const ExpenseForm = (props) => {
           onChange={handleChange}
         >
           <option value="">Select Category</option>
-          <option value="rent/utilities/phone">Rent/Utilities/Phone</option>
-          <option value="car/transportation/gas">Car/Transportation/Gas</option>
-          <option value="groceries">Groceries</option>
-          <option value="personal necessary">Personal Necessary</option>
-          <option value="personal unnecessary">Personal Unnecessary</option>
-          <option value="other">Other</option>
-          <option value="investment">Investment</option>
+          <option value="Rent/Utilities/Phone">Rent/Utilities/Phone</option>
+          <option value="Car/Transportation/Gas">Car/Transportation/Gas</option>
+          <option value="Groceries">Groceries</option>
+          <option value="Personal Necessary">Personal Necessary</option>
+          <option value="Personal Unnecessary">Personal Unnecessary</option>
+          <option value="Other">Other</option>
+          <option value="Investment">Investment</option>
         </Form.Control>
 
         <Form.Label>Description</Form.Label>
