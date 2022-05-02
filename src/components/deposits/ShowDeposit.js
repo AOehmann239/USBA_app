@@ -41,7 +41,7 @@ const ShowDeposit = (props) => {
     }, [updated])
 
     const removeTheDeposit = () => {
-        removeDeposit(user, deposit.id)
+        removeDeposit(user, deposit._id)
             .then(() => {
                 msgAlert({
                     heading: 'deposit politely removed!',

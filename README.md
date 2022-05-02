@@ -27,3 +27,11 @@ Postman<br />
 ![Add transaction](https://user-images.githubusercontent.com/97055154/165163973-b60b8423-c057-45bc-98aa-8b917c2da214.jpg)
 ![Category Breakdown](https://user-images.githubusercontent.com/97055154/165163983-dc664265-4421-4517-b49a-08c5c5ec61a7.jpg)
 ![Get paid](https://user-images.githubusercontent.com/97055154/165164001-48159177-a0b7-45a7-bb0d-c603c30bf4f5.jpg)
+
+
+
+
+Still want to:
+    --implement sorting based on amount, name (ASC, DSC)
+    --default sorting based on date
+    --make the seeded data have an owner so it's only visible on the owner's account and able to be modified by the owner

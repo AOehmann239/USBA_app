@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import {useTable, useSortBy } from 'react-table'
 import { getAllExpenses } from '../../api/expenses'
-import { Card, Table, Button } from 'react-bootstrap'
+import { getAllDeposits } from '../../api/deposits'
+import { Table, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import {indexExpensesSuccess, indexExpensesFailure} from '../shared/AutoDismissAlert/messages'
+import {indexExpensesSuccess, indexExpensesFailure, indexDepositsFailure, indexDepositsSuccess} from '../shared/AutoDismissAlert/messages'
 
 // I'm going to declare a style object
 // this will be used to corral my cards
@@ -12,6 +12,7 @@ import {indexExpensesSuccess, indexExpensesFailure} from '../shared/AutoDismissA
 
 const IndexExpenses = (props) => {
     const [expenses, setExpenses] = useState(null)
+    const [deposits, setDeposits] = useState(null)
     const [order, setorder] = useState('ASC')
     const {user, msgAlert} = props
 
@@ -35,7 +36,26 @@ const IndexExpenses = (props) => {
                 })
             })
     }, [])
-
+    useEffect(() => {
+        getAllDeposits()
+            .then(res => {
+                setDeposits(res.data.deposits)
+            })
+            .then(() => {
+                msgAlert({
+                    heading: 'Found some deposits!',
+                    message: indexDepositsSuccess,
+                    variant: 'success',
+                })
+            })
+            .catch(() => {
+                msgAlert({
+                    heading: 'No deposits?!!',
+                    message: indexDepositsFailure,
+                    variant: 'danger',
+                })
+            })
+    }, [])
     if (!expenses) {
         return <p>loading...</p>
     } else if (expenses.length === 0) {
@@ -54,8 +74,43 @@ const IndexExpenses = (props) => {
     }
     let expenseTableItems
     let totalExpenses = 0
+    let totalRentExp = 0
+    let totalTranspExp = 0
+    let totalGroceryExp = 0
+    let totalUnnecessaryExp = 0
+    let totalNecessaryExp = 0
+    let totalOtherExp = 0
+    let totalInvestExp = 0
+    let totalDeposits = 0
+    let netDinero = 0
+    expenses.forEach(expense => {
+        if (expense.category === "Rent/Utilities/Phone"){
+            totalRentExp += expense.amount
+        }
+        if (expense.category === "Car/Transportation/Gas"){
+            totalTranspExp += expense.amount
+        }
+        if (expense.category === "Groceries"){
+            totalGroceryExp += expense.amount
+        }
+        if (expense.category === "Personal Necessary"){
+            totalNecessaryExp += expense.amount
+        }
+        if (expense.category === "Personal Unnecessary"){
+            totalUnnecessaryExp += expense.amount
+        }
+        if (expense.category === "Other"){
+            totalOtherExp += expense.amount
+        }
+        if (expense.category === "Investment"){
+            totalInvestExp += expense.amount
+        }
+    })
     expenses.forEach(expense => {
         totalExpenses += expense.amount
+    })
+    deposits.forEach(deposit => {
+        totalDeposits += deposit.amount
     })
     if (expenses.length > 0) {
         expenseTableItems = expenses.map(expense => (
@@ -70,7 +125,6 @@ const IndexExpenses = (props) => {
             
         ))
     }
-        
         // const sorting = (col) => {
         //     if (order === 'ASC'){
         //         const sorted = [...expenses].sort((a, b) =>
@@ -106,7 +160,17 @@ const IndexExpenses = (props) => {
             <Link to="/expensesByCategory">
   				<Button className='app-select-button' id='button3'>Breakdown By Category</Button>
 			</Link>
-            <div id='totalExpensesDiv'>Total Expenses: ${totalExpenses}</div>
+            <div>Total Expenses: ${totalExpenses}</div>
+            <div>By Category--</div>
+            <div>Rent/Utilities/Phone: ${totalRentExp}</div>
+            <div>Car/Transportation/Gas: ${totalTranspExp}</div>
+            <div>Groceries: ${totalGroceryExp}</div>
+            <div>Personal Necessary: ${totalNecessaryExp}</div>
+            <div>Personal Unnecessary: ${totalUnnecessaryExp}</div>
+            <div>Other: ${totalOtherExp}</div>
+            <div>Investment: ${totalInvestExp}</div>
+            <div>Total deposits: ${totalDeposits}</div>
+            <div>Net Dinero: ${totalDeposits-totalExpenses}</div>
         </>
     )
 }

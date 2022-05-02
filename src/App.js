@@ -18,6 +18,7 @@ import IndexExpenses from './components/expenses/IndexExpenses';
 import ShowDeposit from './components/deposits/ShowDeposit';
 import CreateDeposit from './components/deposits/CreateDeposit';
 import IndexDeposits from './components/deposits/IndexDeposits';
+import ExpensesByCategory from './components/expenses/ExpensesByCategory'
 
 
 const App = () => {
@@ -100,10 +101,10 @@ const App = () => {
             </RequireAuth>
           }
         />
-         {/* <Route
+         <Route
           path="/expensesByCategory/"
           element={<ExpensesByCategory msgAlert={msgAlert} user={user} />}
-        /> */}
+        />
 		    <Route
           path="/deposits"
           element={

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getAllDeposits } from '../../api/deposits'
-import { Card } from 'react-bootstrap'
+import { Table, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import {indexDepositsSuccess, indexDepositsFailure} from '../shared/AutoDismissAlert/messages'
 
@@ -44,30 +44,56 @@ const IndexDeposits = (props) => {
     } else if (deposits.length === 0) {
         return <p>no deposits yet, go add some</p>
     }
-
-    let depositCards
-
+    const padTo2Digits = (num) => {
+        return num.toString().padStart(2, '0')
+    }
+        
+    const formatDate = (date) => {
+        return [
+            padTo2Digits(date.getMonth() + 1),
+            padTo2Digits(date.getDate()),
+            date.getFullYear(),
+        ].join('/');
+    }
+    let depositTableItems
+    let totalDeposits = 0
+    deposits.forEach(deposit => {
+        totalDeposits += deposit.amount
+    })
     if (deposits.length > 0) {
-        depositCards = deposits.map(deposit => (
+        depositTableItems = deposits.map(deposit => (
             // one method of styling, usually reserved for a single style
             // we can use inline, just like in html
-            <Card key={deposit.id} style={{ width: '30%' }} className="m-2">
-                <Card.Header>{deposit.fullTitle}</Card.Header>
-                <Card.Body>
-                    <Card.Text>
-                        <Link to={`/deposits/${deposit.id}`}>View {deposit.name}</Link>
-                    </Card.Text>
-                </Card.Body>
-            </Card>
+                <tr key={deposit.id}>
+                    <td>{formatDate(new Date(deposit.date))}</td>
+                    <td>{deposit.description}</td>
+                    <td>${deposit.amount}</td>
+                    <td><Link to={`/deposits/${deposit._id}`}>More info</Link></td>
+                </tr>
+            
         ))
     }
-
     return (
         <>
-            <h3>All the deposits</h3>
-            <div style={cardContainerLayout}>
-                {depositCards}
-            </div>
+            <h3 className='page-title'>All My Deposits</h3>
+            <Table striped bordered hover variant="dark" id='myTable'>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        {/* tried to make an onclick to sort by vendor name, not working */}
+                        {/* onClick={()=>sorting('vendor') */}
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {depositTableItems}
+                </tbody>
+            </Table>
+            
+            
+            <div>Total: ${totalDeposits}</div>
         </>
     )
 }

@@ -10,15 +10,18 @@ const Home = (props) => {
 		<>
 			<h1 className='page-title'>Greetings Traveler</h1>
 			<h4 className='home-page-subtitle'>Where should we start today?</h4>
-			<Link to="/addExpense">
+			{/* <Link to="/addExpense">
   				<Button className='app-select-button' id='button2'>Add Expense</Button>
 			</Link>
 			<Link to="/addDeposit">
   				<Button className='app-select-button' id='button1'>Add Deposit</Button>
 			</Link>
-			<h4 id='or'>Or</h4>
+			<h4 id='or'>Or</h4> */}
 			<Link to="/expenses">
   				<Button className='app-select-button' id='button3'>View Budget Overview</Button>
+			</Link>
+			<Link to="/deposits">
+  				<Button className='app-select-button' id='button4'>View Deposit History</Button>
 			</Link>
 
 			

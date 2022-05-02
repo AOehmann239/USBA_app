@@ -23,6 +23,14 @@ const DepositForm = (props) => {
           name="description"
           onChange={handleChange}
         />
+        <Form.Label>Date</Form.Label>
+        <Form.Control
+          placeholder="date?"
+          value={deposit.date}
+          type="date"
+          name="date"
+          onChange={handleChange}
+        />
         <Button type="submit">Submit</Button>
       </Form>
     </Container>

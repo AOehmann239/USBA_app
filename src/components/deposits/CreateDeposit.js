@@ -13,7 +13,7 @@ const CreateDeposit = (props) => {
     console.log('user in create', user)
     const navigate = useNavigate()
     // we'll need two states
-    const [deposit, setDeposit] = useState({amount: '', description: '',})
+    const [deposit, setDeposit] = useState({amount: '', description: '', date: ''})
     console.log('deposit in create', deposit)
     //  an empty deposit object
     // and a createdId (used to navigate)
