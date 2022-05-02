@@ -35,3 +35,7 @@ Still want to:
     --implement sorting based on amount, name (ASC, DSC)
     --default sorting based on date
     --make the seeded data have an owner so it's only visible on the owner's account and able to be modified by the owner
+    --update readme with route tables
+    --put ERD in the API's readme
+    --net total change colors based on if positive vs negative number
+    --user flow through app

@@ -5,11 +5,6 @@ import { Table, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import {indexExpensesSuccess, indexExpensesFailure, indexDepositsFailure, indexDepositsSuccess} from '../shared/AutoDismissAlert/messages'
 
-// I'm going to declare a style object
-// this will be used to corral my cards
-// we can use basic CSS, but we have to use JS syntax
-
-
 const IndexExpenses = (props) => {
     const [expenses, setExpenses] = useState(null)
     const [deposits, setDeposits] = useState(null)
@@ -61,10 +56,14 @@ const IndexExpenses = (props) => {
     } else if (expenses.length === 0) {
         return <p>no expenses yet, go add some</p>
     }
+    if (!deposits) {
+        return <p>loading...</p>
+    } else if (deposits.length === 0) {
+        return <p>no deposits yet, go add some</p>
+    }
     const padTo2Digits = (num) => {
         return num.toString().padStart(2, '0')
-    }
-        
+    }  
     const formatDate = (date) => {
         return [
             padTo2Digits(date.getMonth() + 1),
@@ -83,6 +82,7 @@ const IndexExpenses = (props) => {
     let totalInvestExp = 0
     let totalDeposits = 0
     let netDinero = 0
+   
     expenses.forEach(expense => {
         if (expense.category === "Rent/Utilities/Phone"){
             totalRentExp += expense.amount
@@ -110,7 +110,7 @@ const IndexExpenses = (props) => {
         totalExpenses += expense.amount
     })
     deposits.forEach(deposit => {
-        totalDeposits += deposit.amount
+       totalDeposits += deposit.amount
     })
     if (expenses.length > 0) {
         expenseTableItems = expenses.map(expense => (
@@ -169,8 +169,8 @@ const IndexExpenses = (props) => {
             <div>Personal Unnecessary: ${totalUnnecessaryExp}</div>
             <div>Other: ${totalOtherExp}</div>
             <div>Investment: ${totalInvestExp}</div>
-            <div>Total deposits: ${totalDeposits}</div>
-            <div>Net Dinero: ${totalDeposits-totalExpenses}</div>
+            <div>Total deposits: ${totalDeposits}</div> 
+            <div>Net Dinero: ${totalDeposits-totalExpenses}</div> 
         </>
     )
 }
