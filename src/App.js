@@ -100,10 +100,10 @@ const App = () => {
             </RequireAuth>
           }
         />
-         <Route
+         {/* <Route
           path="/expensesByCategory/"
           element={<ExpensesByCategory msgAlert={msgAlert} user={user} />}
-        />
+        /> */}
 		    <Route
           path="/deposits"
           element={
